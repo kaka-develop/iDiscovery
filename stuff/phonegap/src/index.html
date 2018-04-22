@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>iDiscovery App</title>
+    <base href="/">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/mdPickers/dist/mdPickers.min.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/main-600.css">
+    <link rel="stylesheet" href="css/main-900.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <!-- endinject -->
+
+</head>
+
+<body ng-app="iDiscoveryApp" ng-strict-di>
+    <main layout="column">
+        <div ui-view="toolbar" ng-cloak></div>
+        <div ui-view="content" ng-cloak></div>
+    </main>
+
+
+    <!-- bower:js -->
+
+    <script src="bower_components/angular/angular.js"></script>
+
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+    <script src="bower_components/angular-material/angular-material.js"></script>
+
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="bower_components/moment/moment.js"></script>
+
+    <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+
+    <script src="bower_components/mdPickers/dist/mdPickers.min.js"></script>
+
+    <!-- endinject -->
+
+    <script src="cordova.js"></script>
+
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.state.js"></script>
+    <script src="app/alert/alert.controller.js"></script>
+    <script src="app/alert/alert.service.js"></script>
+    <script src="app/config/html5.mode.config.js"></script>
+    <script src="app/database/database.service.js"></script>
+    <script src="app/database/event-table.service.js"></script>
+    <script src="app/database/report-table.service.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.state.js"></script>
+    <script src="app/user/user.state.js"></script>
+    <script src="app/util/converter.service.js"></script>
+    <script src="app/util/generator.service.js"></script>
+    <script src="app/layouts/toolbar/toolbar.controller.js"></script>
+    <script src="app/user/event/event-addedit.controller.js"></script>
+    <script src="app/user/event/event-detail.controller.js"></script>
+    <script src="app/user/event/event-dialog.controller.js"></script>
+    <script src="app/user/event/event.controller.js"></script>
+    <script src="app/user/event/event.service.js"></script>
+    <script src="app/user/event/event.state.js"></script>
+    <script src="app/user/report/report-addedit.controller.js"></script>
+    <script src="app/user/report/report-detail.controller.js"></script>
+    <script src="app/user/report/report-dialog.controller.js"></script>
+    <script src="app/user/report/report-view.controller.js"></script>
+    <script src="app/user/report/report.controller.js"></script>
+    <script src="app/user/report/report.service.js"></script>
+    <script src="app/user/report/report.state.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

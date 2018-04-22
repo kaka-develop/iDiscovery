@@ -1,0 +1,37 @@
+<div layout-padding>
+    <div layout-padding class="md-whiteframe-1dp">
+        <div layout-gt-xs="row">
+            <div flex>
+                <p>
+                    <span>Activity Name : </span>
+                    <b>{{vm.event.activity_name}}</b>
+                </p>
+                <p>
+                    <span>Reporter Name : </span>
+                    <b>{{vm.event.reporter_name}}</b>
+                </p>
+                <p>
+                    <span>Activity Location : </span>
+                    <b>{{vm.event.activity_location}}</b>
+                </p>
+            </div>
+            <div flex>
+
+                <p>
+                    <span>Activity Date : </span>
+                    <b>{{vm.event.activity_date | date:'dd/MM/yyyy'}}</b>
+                </p>
+                <p>
+                    <span>Attending Time : </span>
+                    <b>{{vm.event.attending_time | date:'HH:mm a'}}</b>
+                </p>
+            </div>
+        </div>
+
+        <div layout="row">
+            <md-button ng-click="vm.save()" class="md-raised md-primary">Ok</md-button>
+            <span flex></span>
+            <md-button ng-click="vm.closeDialog()" class="md-raised right">Cancel</md-button>
+        </div>
+    </div>
+</div>

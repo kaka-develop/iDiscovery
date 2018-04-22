@@ -1,0 +1,37 @@
+<div layout="column" layout-padding layout-align="center center">
+    <div class="m-panel" md-whiteframe="1">
+        <div layout="row">
+            <md-button ui-sref="report" class="md-raised md-primary">Back</md-button>
+             <md-button class="md-raised md-primary" ng-click="vm.share()">Share</md-button>
+        </div>
+        <div layout-padding>
+            <div layout-gt-xs="row">
+                <div flex>
+                    <p>
+                        <span>ID : </span>
+                        <b>{{vm.report.id}}</b>
+                    </p>
+                    <p>
+                        <span>Person Number : </span>
+                        <b>{{vm.report.person_number}}</b>
+                    </p>
+                    <p>
+                        <span>Topic : </span>
+                        <b>{{vm.report.topic}}</b>
+                    </p>
+
+                </div>
+                <div flex>
+                    <p>
+                        <span>Description : </span>
+                        <b>{{vm.report.description}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button ui-sref="report.edit({id:vm.report.id})" class="md-raised md-primary">Edit</md-button>
+            <md-button ui-sref="report.delete({id:vm.report.id})" class="md-raised md-warn">Delete</md-button>
+        </div>
+    </div>
+</div>

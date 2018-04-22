@@ -1,0 +1,79 @@
+<div layout="column" layout-padding layout-align="center center">
+    <div class="m-panel" md-whiteframe="1">
+        <div layout="row" layout-align="center center">
+            <form class="m-form" ng-submit="vm.search()">
+                <div layout-gt-sm="row">
+                    <div layout="row" layout-padding>
+                        <md-input-container>
+                            <md-icon aria-label="keyboard_arrow_down" class="material-icons">search
+                            </md-icon>
+                            <label>Searching text</label>
+                            <input type="text" name="name" ng-model="vm.text" />
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Search by</label>
+                            <md-select ng-model="vm.field">
+                                <md-option ng-repeat="item in vm.fields" ng-value="item.value">{{item.title}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout="row" layout-align="center center">
+                        <md-input-container>
+                            <label>start</label>
+                            <md-datepicker ng-model="vm.startDate" name="startDate"></md-datepicker>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>end</label>
+                            <md-datepicker ng-model="vm.endDate" name="endDate"></md-datepicker>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center" >
+                    <button type="submit" class=" md-button md-raised md-primary">Search</button>
+                    <button type="button" class=" md-button md-raised" ng-click="vm.reset()">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <table layout-fill>
+                <thead>
+                    <tr>
+                        <th>
+                            <md-button ui-sref="event.new" class="md-icon-button md-raised md-primary">
+                                <i class="material-icons">add</i>
+                            </md-button>
+                        </th>
+                        <th>Activity Name</th>
+                        <th>Reporter Name</th>
+                        <th hide-xs>Location</th>
+                        <th hide-xs hide-sm>Attending Time</th>
+                        <th hide-xs hide-sm>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in vm.events">
+                        <td>
+                            <div class="m-item-actions" layout="row" layout-align="start center">
+                                <md-button hide-xs hide-sm hide-md class="md-icon-button md-raised md-warn" ui-sref="event.delete({id: event.id})">
+                                    <i class="material-icons">delete</i>
+                                </md-button>
+                                <md-button hide-xs hide-sm hide-md class="md-icon-button md-raised md-primary" ui-sref="event.edit({id: event.id})">
+                                    <i class="material-icons">edit</i>
+                                </md-button>
+                                <md-button class="md-icon-button md-raised md-primary" ui-sref="event.detail({id: event.id})">
+                                    <i class="material-icons">remove_red_eye</i>
+                                </md-button>
+                            </div>
+                        </td>
+                        <td>{{event.activity_name}}</td>
+                        <td>{{event.reporter_name}}</td>
+                        <td hide-xs>{{event.activity_location}}</td>
+                        <td hide-xs hide-sm>{{event.attending_time | date:'HH:mm a'}}</td>
+                        <td hide-xs hide-sm>{{event.activity_date | date:'MM/dd/yyyy' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

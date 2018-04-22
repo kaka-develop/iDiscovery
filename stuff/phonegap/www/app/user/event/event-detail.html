@@ -1,0 +1,44 @@
+<div layout="column" layout-padding layout-align="center center">
+    <div class="m-panel" md-whiteframe="1">
+        <div>
+            <md-button ui-sref="event" class="md-raised md-primary">Back</md-button>
+        </div>
+        <div layout-padding>
+            <div layout-gt-xs="row">
+                <div flex>
+                    <p>
+                        <span>ID : </span>
+                        <b>{{vm.event.id}}</b>
+                    </p>
+                    <p>
+                        <span>Activity Name : </span>
+                        <b>{{vm.event.activity_name}}</b>
+                    </p>
+                    <p>
+                        <span>Reporter Name : </span>
+                        <b>{{vm.event.reporter_name}}</b>
+                    </p>
+
+                </div>
+                <div flex>
+                    <p>
+                        <span>Activity Location : </span>
+                        <b>{{vm.event.activity_location}}</b>
+                    </p>
+                    <p>
+                        <span>Activity Date : </span>
+                        <b>{{vm.event.activity_date | date:'dd/MM/yyyy'}}</b>
+                    </p>
+                    <p>
+                        <span>Attending Time : </span>
+                        <b>{{vm.event.attending_time | date:'HH:mm a'}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button ui-sref="event.edit({id:vm.event.id})" class="md-raised md-primary">Edit</md-button>
+            <md-button ui-sref="event.delete({id:vm.event.id})" class="md-raised md-warn">Delete</md-button>
+        </div>
+    </div>
+</div>

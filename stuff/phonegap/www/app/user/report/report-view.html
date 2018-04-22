@@ -1,0 +1,52 @@
+<div layout="column" layout-padding layout-align="center center">
+    <div class="m-panel" md-whiteframe="1" layout-padding>
+        <div>
+            <form name="Form" ng-submit="vm.findReport()">
+                <div layout="row">
+                    <md-input-container flex>
+                        <label>Event</label>
+                        <md-select ng-model="vm.event_id" name="event_id" required>
+                            <md-option ng-repeat="item in vm.events" ng-value="item.id">{{item.activity_name}}</md-option>
+                        </md-select>
+                        <div ng-messages="Form.event_id.$error">
+                            <div ng-message-exp="['required']">
+                                This is required.
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <div>
+                        <button type="submit" ng-disabled="!Form.$valid" class=" md-button md-raised md-primary">Find report</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div layout-padding>
+            <b ng-show="vm.report == null">No report</b>
+            <div layout-gt-xs="row" ng-show="vm.report != null">
+              <b>Report</b>
+                <div flex>
+                    <p>
+                        <span>ID : </span>
+                        <b>{{vm.report.id}}</b>
+                    </p>
+                    <p>
+                        <span>Person Number : </span>
+                        <b>{{vm.report.person_number}}</b>
+                    </p>
+                    <p>
+                        <span>Topic : </span>
+                        <b>{{vm.report.topic}}</b>
+                    </p>
+
+                </div>
+                <div flex>
+                    <p>
+                        <span>Description : </span>
+                        <b>{{vm.report.description}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

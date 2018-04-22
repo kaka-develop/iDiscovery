@@ -1,0 +1,66 @@
+<div layout="column" layout-padding layout-align="center center">
+    <div class="m-panel" md-whiteframe="1">
+        <div>
+            <form ng-submit="vm.search()">
+
+                <div layout="row" layout-padding>
+                    <md-input-container>
+                        <md-icon aria-label="keyboard_arrow_down" class="material-icons">search
+                        </md-icon>
+                        <label>Searching text</label>
+                        <input type="text" name="name" ng-model="vm.text" />
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Search by</label>
+                        <md-select ng-model="vm.field">
+                            <md-option ng-repeat="item in vm.fields" ng-value="item.value">{{item.title}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <div layout="row" layout-align="center center" layout-align-gt-sm="start center">
+                    <button type="submit" class=" md-button md-raised md-primary">Search</button>
+                    <button type="button" class=" md-button md-raised md-primary" ui-sref="report.view">View</button>
+                </div>
+            </form>
+        </div>
+        
+        <div>
+            <table layout-fill>
+                <thead>
+                    <tr>
+                        <th>
+                            <md-button ui-sref="report.new" class="md-icon-button md-raised md-primary">
+                                <i class="material-icons">add</i>
+                            </md-button>
+                        </th>
+                        <th>Person number</th>
+                        <th>Topic</th>
+                        <th hide-xs hide-sm>Desription</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="report in vm.reports">
+                        <td>
+                            <div class="m-item-actions" layout="row" layout-align="start center">
+                                <md-button hide-xs hide-sm hide-md class="md-icon-button md-raised md-warn" ui-sref="report.delete({id: report.id})">
+                                    <i class="material-icons">delete</i>
+                                </md-button>
+                                <md-button hide-xs hide-sm hide-md class="md-icon-button md-raised md-primary" ui-sref="report.edit({id: report.id})">
+                                    <i class="material-icons">edit</i>
+                                </md-button>
+                                <md-button class="md-icon-button md-raised md-primary" ui-sref="report.detail({id: report.id})">
+                                    <i class="material-icons">remove_red_eye</i>
+                                </md-button>
+                            </div>
+                        </td>
+                        <td>{{report.person_number}}</td>
+                        <td>{{report.topic}}</td>
+                        <td hide-xs hide-sm>{{report.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

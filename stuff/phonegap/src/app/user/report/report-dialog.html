@@ -1,0 +1,29 @@
+<div layout-padding>
+    <div layout-padding class="md-whiteframe-1dp">
+        <div layout-gt-xs="row">
+            <div flex>
+                <p>
+                    <span>Person Number : </span>
+                    <b>{{vm.report.person_number}}</b>
+                </p>
+                <p>
+                    <span>Topic : </span>
+                    <b>{{vm.report.topic}}</b>
+                </p>
+
+            </div>
+            <div flex>
+                <p>
+                    <span>Description : </span>
+                    <b>{{vm.report.description}}</b>
+                </p>
+            </div>
+        </div>
+
+        <div layout="row">
+            <md-button ng-click="vm.save()" class="md-raised md-primary">Ok</md-button>
+            <span flex></span>
+            <md-button ng-click="vm.closeDialog()" class="md-raised right">Cancel</md-button>
+        </div>
+    </div>
+</div>

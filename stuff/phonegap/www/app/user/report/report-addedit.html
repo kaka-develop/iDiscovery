@@ -1,0 +1,59 @@
+<div layout-padding layout="row" layout-align="center center">
+    <div class="m-panel" layout-padding md-whiteframe="1">
+        <form name="Form" layout="column" ng-submit="vm.submit()">
+            <div layout-gt-xs="row" layout="column">
+                <md-input-container flex>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">title
+                    </md-icon>
+                    <label>Topic</label>
+                    <input type="text" name="topic" ng-minlength="3" ng-model="vm.report.topic" required/>
+                    <div ng-messages="Form.topic.$error">
+                        <div ng-message-exp="['required', 'minlength']">
+                            This is required. More than 3 characters
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container flex>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">description
+                    </md-icon>
+                    <label>Description</label>
+                    <input type="text" name="description" ng-minlength="6" ng-model="vm.report.description" required/>
+                    <div ng-messages="Form.description.$error">
+                        <div ng-message-exp="['required', 'minlength']">
+                            This is required. More than 6 characters
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex-xs>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">person
+                    </md-icon>
+                    <label>Persons</label>
+                    <input type="number" name="person_number" min="10" ng-model="vm.report.person_number" required />
+                    <div ng-messages="Form.person_number.$error">
+                        <div ng-message-exp="['required','min']">
+                            More than 10 persons
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container flex-xs>
+                    <label>Event</label>
+                    <md-select ng-model="vm.report.event_id" name="event_id" required>
+                        <md-option ng-repeat="item in vm.events" ng-value="item.id">{{item.activity_name}}</md-option>
+                    </md-select>
+                    <div ng-messages="Form.event_id.$error">
+                        <div ng-message-exp="['required']">
+                            This is required.
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <button ng-disabled="!Form.$valid" type="submit" class=" md-button md-raised md-primary">Save</button>
+                <span flex></span>
+                <md-button ui-sref="report" class="md-raised right">Cancel</md-button>
+            </div>
+        </form>
+    </div>
+</div>

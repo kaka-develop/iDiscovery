@@ -1,0 +1,66 @@
+<div layout-padding layout="row" layout-align="center center">
+    <div class="m-panel" layout-padding md-whiteframe="1">
+        <form name="Form" layout="column" ng-submit="vm.submit()">
+            <div layout-gt-xs="row" layout="column">
+                <md-input-container flex>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">title
+                    </md-icon>
+                    <label>Activity Name</label>
+                    <input type="text" name="name" ng-minlength="3" ng-model="vm.event.activity_name" required/>
+                    <div ng-messages="Form.name.$error">
+                        <div ng-message-exp="['required', 'minlength']">
+                            This is required. More than 3 characters
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container flex>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">person
+                    </md-icon>
+                    <label>Reporter Name</label>
+                    <input type="text" name="reporter" ng-minlength="3" ng-model="vm.event.reporter_name" required/>
+                    <div ng-messages="Form.reporter.$error">
+                        <div ng-message-exp="['required', 'minlength']">
+                            This is required. More than 3 characters
+                        </div>
+                    </div>
+                </md-input-container>
+
+            </div>
+            <div layout-gt-xs="row" layout="column">
+                <md-input-container flex>
+                    <md-icon aria-label="keyboard_arrow_down" class="material-icons">location_on
+                    </md-icon>
+                    <label>Activity Location</label>
+                    <input type="text" name="location" ng-minlength="3" ng-model="vm.event.activity_location" />
+                    <div ng-messages="Form.location.$error">
+                        <div ng-message-exp="['minlength']">
+                            This is required. More than 3 characters
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Date</label>
+                    <md-datepicker ng-model="vm.event.activity_date" name="date" required></md-datepicker>
+                    <div ng-messages="Form.date.$error">
+                        <div ng-message-exp="['required']">
+                            This is required
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div class="m-timepicker">
+                <mdp-time-picker name="time" mdp-placeholder="Attending Time" ng-model="vm.event.attending_time" mdp-format="HH:mm A">
+                    <div ng-messages="Form.time.$error">
+                        <div ng-message="format">Invalid format</div>
+                    </div>
+                </mdp-time-picker>
+            </div>
+
+            <div layout="row">
+                <button ng-disabled="!Form.$valid" type="submit" class=" md-button md-raised md-primary">Save</button>
+                <span flex></span>
+                <md-button ui-sref="event" class="md-raised right">Cancel</md-button>
+            </div>
+        </form>
+    </div>
+</div>
